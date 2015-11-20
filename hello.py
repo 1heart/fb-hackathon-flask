@@ -1,4 +1,4 @@
-import urllib3
+import urllib, urlparse
 from json import dumps
 from flask import Flask
 from flask import jsonify
@@ -21,19 +21,13 @@ def make_video_data():
 
     youtube = request.args.get('youtube', '')
     facebook = request.args.get('facebook', '')
+    if facebook != '':
+        try:
+            facebook = urlparse.parse_qs(facebook).values()[0][0]
+        except:
+            facebook = ''
     print(youtube)
     print(facebook)
-
-    # print(request)
-    params = request.data
-
-    print('Params')
-    print(params)
-
-    json = request.json
-
-    print('JSON')
-    print(json)
 
     # hash the video
 
