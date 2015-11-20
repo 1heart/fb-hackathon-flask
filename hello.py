@@ -18,8 +18,10 @@ app = Flask(__name__)
 
 @app.route('/upload', methods=['POST'])
 def make_video_data():
-    print(request)
+    # print(request)
     params = request.data
+    print('Params')
+    print(params)
 
     # hash the video
 
