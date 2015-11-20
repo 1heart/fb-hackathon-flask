@@ -22,13 +22,15 @@ def make_video_data():
     # print('facebook')
     # print(youtube)
     # print(facebook)
-    return 'asdf'
+    if youtube:
+    	handle_youtube(youtube)
+    return {'youtube': 'success', 'facebook': 'success'}
 
 
 def handle_youtube(video_id):
 	video.youtube_download(video_id)
 	curr_video = video.get_youtube_video(video_id)
-	hash_list = video.hash_list(curr_video)
+	hash_list = hashTest.get_hash_list(video_id)
 	db.add_to_db(hash_list, 'https://www.youtube.com/watch?v=' + video_id)
 	return True
 
@@ -39,3 +41,5 @@ def hello():
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
+# handle_youtube('j8D8YjgnGR4')
+ # db.find_best_match(db.database.keys()[0])
