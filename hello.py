@@ -24,7 +24,7 @@ def make_video_data():
     # print(facebook)
     if youtube:
     	handle_youtube(youtube)
-    return {'youtube': 'success', 'facebook': 'success'}
+    return jsonify({'youtube': 'success', 'facebook': 'success'})
 
 
 def handle_youtube(video_id):

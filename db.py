@@ -9,7 +9,6 @@ import requests
 
 def grabData():
 	db = json.loads(urllib2.urlopen("http://testware.cloudapp.net:3000/getAllData").read())['data']
-	print(db)
 	# db = [{'redirect': 'google.com', 'videoHash': u'a'*128}]
 
 	hashToUrl = {}
@@ -26,21 +25,15 @@ def grabData():
 def find_best_match(vid):
 	min_diff = float("inf")
 	min_video = None
-	print(len(database.keys()))
 	for item in database.keys():
 		matchrate = video.correlate_hash_list(vid, item)
 		corr = matchrate[0]
-		print('here')
 		if corr < 15 and corr < min_diff:
 			min_diff = corr
-			print('there')
 			min_video = item
 	if not min_video:
-		print('nope')
 		return min_video
 	else:
-		print(min_video)
-		print('yep')
 		return database[min_video]
 
 def extract_video(url):
