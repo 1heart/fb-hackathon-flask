@@ -18,7 +18,6 @@ app = Flask(__name__)
 
 @app.route('/upload', methods=['GET'])
 def make_video_data():
-
     youtube = request.args.get('youtube', '')
     facebook = request.args.get('facebook', '')
     if facebook != '':
@@ -28,11 +27,7 @@ def make_video_data():
             facebook = ''
     print(youtube)
     print(facebook)
-
-    # hash the video
-
-    # upload to Block Chain
-    return params
+    return {'youtube': youtube, 'facebook': facebook}
 
 @app.route('/')
 def hello():
