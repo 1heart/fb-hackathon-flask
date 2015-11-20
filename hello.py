@@ -13,6 +13,8 @@ app = Flask(__name__)
 def make_video_data():
     youtube = request.args.get('youtube', '')
     facebook = request.args.get('facebook', '')
+    print('facebook')
+    print(facebook)
     if facebook != '':
         try:
             facebook = urlparse.parse_qs(facebook).values()[0][0]
