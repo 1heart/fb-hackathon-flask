@@ -16,7 +16,7 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['GET'])
 def make_video_data():
     # print(request)
     params = request.data
