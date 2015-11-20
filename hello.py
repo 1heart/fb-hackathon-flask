@@ -5,18 +5,11 @@ from flask import jsonify
 from flask import request
 from flask import abort
 from flask import make_response
-
-# application = Flask(__name__)
-
-# if __name__ == '__main__':
-#     application.run(debug=True)
-
 import os
-# from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/upload', methods=['GET'])
+@app.route('/upload')
 def make_video_data():
     youtube = request.args.get('youtube', '')
     facebook = request.args.get('facebook', '')
@@ -27,9 +20,11 @@ def make_video_data():
             facebook = ''
     print(youtube)
     print(facebook)
-    return {'youtube': youtube, 'facebook': facebook}
+    return 'asdf'
 
 @app.route('/')
 def hello():
     return 'Hello World!'
 
+# if __name__ == '__main__':
+#     app.run(debug=True)
