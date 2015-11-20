@@ -20,8 +20,14 @@ app = Flask(__name__)
 def make_video_data():
     # print(request)
     params = request.data
+
     print('Params')
     print(params)
+
+    json = request.json
+
+    print('JSON')
+    print(json)
 
     # hash the video
 
