@@ -14,12 +14,6 @@ def make_video_data():
     youtube = request.args.get('youtube', '')
     facebook = request.args.get('facebook', '')
     print('facebook')
-    print(facebook)
-    if facebook != '':
-        try:
-            facebook = urlparse.parse_qs(facebook).values()[0][0]
-        except:
-            facebook = ''
     print(youtube)
     print(facebook)
     return 'asdf'
